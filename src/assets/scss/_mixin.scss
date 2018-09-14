@@ -1,0 +1,64 @@
+@mixin text_overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+@mixin overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+@mixin flex{
+  display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box; /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox; /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+  flex-wrap:wrap;
+}
+    
+@mixin flexLi{
+    -webkit-box-flex: 1.0;
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+//css3属性
+@mixin rotate($num){
+    -webkit-transform:rotate($num);
+    -moz-transform:rotate($num);
+    -ms-transform:rotate($num);
+    transform:rotate($num)
+}
+@mixin scale($num){
+    -webkit-transform:scale($num);
+    -moz-transform:scale($num);
+    -ms-transform:scale($num);
+    transform:scale($num);
+}
+@mixin translate($X,$Y){
+    -webkit-transform:translate($X,$Y);
+    -moz-transform:translate($X,$Y);
+    -ms-transform:translate($X,$Y);
+    transform:translate($X,$Y)}
+@mixin opacity($Num,$Num2){opacity:$Num;filter:Alpha(opacity=$Num2);}
+@mixin Animation($x){
+    -webkit-transition: all $x ease-in-out 0s;
+    -moz-transition: all $x ease-in-out 0s;
+    -ms-transition: all $x ease-in-out 0s;
+    transition: all $x ease-in-out 0s;
+}
+@mixin overflw{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// clearfix
+// 闭合子元素的浮动
+@mixin clearfix ($extend:true) {
+    @if $extend {
+        @extend %clearfix;
+    } @else {
+        *zoom: 1;
+        &:before,
+        &:after {
+            content: "";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+}
